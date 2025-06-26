@@ -9,5 +9,28 @@ use App\Models\User;
 
 class ApiController extends Controller
 {
-    //
+    //Register API route - name, email, password, password_confirmation
+    public function register(Request $request){
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'password' => 'required|confirmed',
+        ]);
+    }
+
+    //Login API route
+    public function login(){
+
+    }
+
+    //Get user details API route - Profile
+    public function profile(){
+       
+    }
+
+    //Logout 
+    public function logout(){
+        
+    }
+    
 }
