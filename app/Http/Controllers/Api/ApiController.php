@@ -16,6 +16,11 @@ class ApiController extends Controller
             'email' => 'required|string|email|max:255|unique:users,email',
             'password' => 'required|confirmed',
         ]);
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ]);
     }
 
     //Login API route
